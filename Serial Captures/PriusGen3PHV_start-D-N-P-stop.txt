@@ -1,0 +1,16 @@
+PriusGen3PHV_start-D-N-P-stop
+
+Test was basically stationary on an uphill slope.
+- Turned car on
+- put into drive which pulled the car forward on the parkbrake
+- footbrake may have been applied at this point
+- changed to N, then P, then off.
+- Footbrake might have been removed after, leading to car settling back on break
+- No timing data recorded
+
+The PHV data appears to be 105bytes HTM, 140bytes MTH.
+Unfortunately the sniffer attempts to cut messages at 121 bytes.
+This is needed as FIFO is 128 bytes long.
+MTH messages are mostly cut at 121/19, however some have the split later.
+This validates the need to leave some margin for the RTOS.
+No overrun observed in this capture.
