@@ -11,10 +11,15 @@ int main (int argv, char *argc[])
   uint8_t byte;
   uint8_t message[128];
   //open file
-  file_p = fopen("log3.txt","r");
+  if(argv!=2)
+  {
+    printf("No filename\n");
+    return -1;
+  }
+  file_p = fopen(argc[1],"r");
   if(!file_p)
   {
-    printf("Couldn't open log1.txt\n");
+    printf("Couldn't open %s\n",argc[1]);
     return -1;
   }
   while(fread(&byte,1,1,file_p)) // print text header
